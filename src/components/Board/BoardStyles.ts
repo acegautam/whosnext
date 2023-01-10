@@ -14,6 +14,10 @@ const NameBadge = styled.div`
   width: 200px;
   padding: 30px;
   border: 1px solid salmon;
+
+  &.selected {
+    border: 5px dashed crimson;
+  }
 `;
 
 export { StyledBoard, NameBadge };
