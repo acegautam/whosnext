@@ -5,19 +5,37 @@ import { chooseRandomName } from '../../utils/helpers';
 import { useState } from 'react';
 
 const Board: React.FC = () => {
-  const [chosenOne, setChosenOne] = useState('')
+  const [chosenOne, setChosenOne] = useState('');
+  const [selected, setSelected] = useState('');
+
   const spinIt = () => {
-    const selected = chooseRandomName(folks);
-    console.log({selected});
-    setChosenOne(selected);
+    setSelected('');
+    setChosenOne('');
+    let chosen: string = '';
+    const timerId = setInterval(() => {
+      chosen = chooseRandomName(folks);
+      setSelected(chosen);
+    }, 400);
+    setTimeout(() => {
+      clearInterval(timerId);
+      setChosenOne(chosen);
+      setSelected('');
+    }, 5000);
   };
   return (
     <StyledBoard>
       {folks.map((f: string) => {
-        const selected = (f === chosenOne) ? 'selected' : '';
-        return <NameBadge className={`${f} ${selected}`}>{f}</NameBadge>;
+        const picked = f === selected ? 'selected' : '';
+        const chosen = f === chosenOne ? 'chosen' : '';
+        return (
+          <NameBadge key={f} className={`${f} ${picked} ${chosen}`}>
+            {f}
+          </NameBadge>
+        );
       })}
-      <Button variant='contained' onClick={spinIt}>Spin it!</Button>
+      <Button variant='contained' onClick={spinIt}>
+        Spin it!
+      </Button>
     </StyledBoard>
   );
 };

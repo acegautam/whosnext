@@ -5,6 +5,7 @@ const StyledBoard = styled.div`
   height: 400px;
   border: 1px solid #ccc;
   display: flex;
+  flex-flow: column wrap;
   justify-content: center;
   align-items: center;
   gap: 5px;
@@ -17,6 +18,9 @@ const NameBadge = styled.div`
 
   &.selected {
     border: 5px dashed crimson;
+  }
+  &.chosen {
+    border: 5px dashed green;
   }
 `;
 
