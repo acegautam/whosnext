@@ -1,5 +1,5 @@
 import Button from '@mui/material/Button';
-import { StyledBoard, NameBadge } from './BoardStyles';
+import { StyledBoard, NameBadge, BadgeList } from './BoardStyles';
 import folks from '../../data/folks';
 import { chooseRandomName } from '../../utils/helpers';
 import { useState } from 'react';
@@ -24,16 +24,18 @@ const Board: React.FC = () => {
   };
   return (
     <StyledBoard>
-      {folks.map((f: string) => {
-        const picked = f === selected ? 'selected' : '';
-        const chosen = f === chosenOne ? 'chosen' : '';
-        return (
-          <NameBadge key={f} className={`${f} ${picked} ${chosen}`}>
-            {f}
-          </NameBadge>
-        );
-      })}
-      <Button variant='contained' onClick={spinIt}>
+      <BadgeList>
+        {folks.map((f: string) => {
+          const picked = f === selected ? 'selected' : '';
+          const chosen = f === chosenOne ? 'chosen' : '';
+          return (
+            <NameBadge key={f} className={`${f} ${picked} ${chosen}`}>
+              {f}
+            </NameBadge>
+          );
+        })}
+      </BadgeList>
+      <Button variant='contained' size='large' onClick={spinIt}>
         Spin it!
       </Button>
     </StyledBoard>
