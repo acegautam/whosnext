@@ -1,12 +1,25 @@
 import Button from '@mui/material/Button';
 import { StyledBoard, NameBadge, BadgeList } from './BoardStyles';
-import folks from '../../data/folks';
 import { chooseRandomName } from '../../utils/helpers';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { fetchParticipants } from '../../utils/api';
+import { FolksReponseType } from '../../types/common';
 
 const Board: React.FC = () => {
+  const [folks, setFolks] = useState([]);
   const [chosenOne, setChosenOne] = useState('');
   const [selected, setSelected] = useState('');
+
+  useEffect(() => {
+    const fetchFolks = async() => {
+      const response = await fetchParticipants();
+      if(!response?.data) return;
+      const folksData = response.data.map((item: FolksReponseType) => item.data.name)
+      setFolks(folksData);
+      console.log('Loaded folks => ', folksData);
+    }
+    fetchFolks();
+  }, [])
 
   const spinIt = () => {
     setSelected('');
