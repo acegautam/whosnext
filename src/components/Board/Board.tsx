@@ -2,7 +2,11 @@ import Button from '@mui/material/Button';
 import { StyledBoard, NameBadge, BadgeList } from './BoardStyles';
 import { chooseRandomName } from '../../utils/helpers';
 import { useEffect, useState } from 'react';
-import { fetchParticipants } from '../../utils/api';
+import {
+  fetchParticipants,
+  fetchPresented,
+  updateChosenOne,
+} from '../../utils/api';
 import { FolksReponseType } from '../../types/common';
 
 const Board: React.FC = () => {
@@ -10,16 +14,29 @@ const Board: React.FC = () => {
   const [chosenOne, setChosenOne] = useState('');
   const [selected, setSelected] = useState('');
 
+  const fetchFolks = async () => {
+    // get all participants
+    const response = await fetchParticipants();
+    if (!response?.data) return;
+    const allData = response.data.map(
+      (item: FolksReponseType) => item.data.name
+    );
+
+    // get all presented
+    const presented = await fetchPresented();
+    const presentedData =
+      presented?.data?.map((item: FolksReponseType) => item.data.name) || [];
+
+    // filter off presented guys
+    const folksData = allData.filter(
+      (name: string) => !presentedData.includes(name)
+    );
+    setFolks(folksData);
+  };
+
   useEffect(() => {
-    const fetchFolks = async() => {
-      const response = await fetchParticipants();
-      if(!response?.data) return;
-      const folksData = response.data.map((item: FolksReponseType) => item.data.name)
-      setFolks(folksData);
-      console.log('Loaded folks => ', folksData);
-    }
     fetchFolks();
-  }, [])
+  }, []);
 
   const spinIt = () => {
     setSelected('');
@@ -34,6 +51,13 @@ const Board: React.FC = () => {
       setChosenOne(chosen);
       setSelected('');
     }, 5000);
+  };
+
+  const accept = async () => {
+    await updateChosenOne(chosenOne);
+    setSelected('');
+    setChosenOne('');
+    await fetchFolks();
   };
   return (
     <StyledBoard>
@@ -51,6 +75,16 @@ const Board: React.FC = () => {
       <Button variant='contained' size='large' onClick={spinIt}>
         Spin it!
       </Button>
+      {chosenOne && (
+        <Button
+          variant='contained'
+          color='success'
+          size='large'
+          onClick={accept}
+        >
+          Accept
+        </Button>
+      )}
     </StyledBoard>
   );
 };
