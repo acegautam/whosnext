@@ -30,7 +30,7 @@ const Board: React.FC = () => {
 
     if (presentedData.length === allData.length) {
       console.log('======= Resetting now... =========');
-      const response = await resetPresented();
+      await resetPresented();
       await fetchFolks();
       return;
     }
