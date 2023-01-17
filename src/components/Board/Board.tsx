@@ -56,6 +56,8 @@ const Board: React.FC = () => {
   };
 
   const accept = async () => {
+    setSelected('');
+    setChosenOne('');
     if (folks.length === 1) {
       setFolks(allFolks);
       await resetPresented();
@@ -64,11 +66,15 @@ const Board: React.FC = () => {
     const filteredFolks = folks.filter((f) => f !== chosenOne);
     setFolks(filteredFolks);
     await updateChosenOne(chosenOne);
-    setSelected('');
-    setChosenOne('');
+  };
+  const getMode = (count: number) => {
+    if (count === 2) return 'Coin Flip mode';
+    if (count === 1) return 'Default presenter mode';
+    return '';
   };
   return (
     <StyledBoard>
+      <div>{getMode(folks.length)}</div>
       <BadgeList>
         {folks.map((f: string) => {
           const picked = f === selected ? 'selected' : '';
