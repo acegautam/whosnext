@@ -52,7 +52,7 @@ const Board: React.FC = () => {
       clearInterval(timerId);
       setChosenOne(chosen);
       setSelected('');
-    }, 1000);
+    }, 5000);
   };
 
   const accept = async () => {
