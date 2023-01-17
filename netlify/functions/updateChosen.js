@@ -2,7 +2,6 @@ const { responseObj, requestObj } = require('./util/helper');
 const { q, clientQuery } = require('./util/connections');
 
 exports.handler = async (event, context) => {
-  console.log('------ UPDATE CALLED -------');
   let { name } = requestObj(event.body);
   try {
     let chosen = await clientQuery.query(

@@ -15,3 +15,8 @@ export const updateChosenOne = async (name: string) => {
   const { data } = await axios.post(`${baseApiUrl}/updateChosen`, { name });
   return data;
 };
+
+export const resetPresented = async () => {
+  const { data } = await axios.post(`${baseApiUrl}/resetPresented`);
+  return data;
+};
