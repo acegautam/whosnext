@@ -2,6 +2,8 @@ import Button from '@mui/material/Button';
 import styled from 'styled-components';
 import { styled as styledMui } from '@mui/material/styles';
 
+const icon = 'robot';
+
 const StyledBoard = styled.div`
   width: 70vw;
   height: 70vh;
@@ -81,14 +83,14 @@ const NameBadge = styled.div`
   &.chosen {
     animation: bounceIn 2s ease-in forwards;
     .avatar {
-      background-image: url('/assets/frog-red.svg');
+      background-image: url('/assets/${icon}_c.png');
       animation-play-state: paused;
     }
   }
 `;
 
 const NameAvatar = styled.div`
-  background-image: url('/assets/frog-green.svg');
+  background-image: url('/assets/${icon}.png');
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
@@ -98,7 +100,7 @@ const NameAvatar = styled.div`
 
 const NameLabel = styled.div`
   position: absolute;
-  bottom: -20px;
+  bottom: -40px;
   width: 100%;
   color: #fff;
   font-size: 1.5rem;
@@ -107,7 +109,7 @@ const NameLabel = styled.div`
 
 const SpinButton = styled.div`
   background-image: url('/assets/spin.png');
-  background-size: 60% 60%;
+  background-size: 40% 40%;
   background-position: center center;
   background-repeat: no-repeat;
   width: 200px;
@@ -140,16 +142,17 @@ const AcceptButton = styled.div`
 
 const ColorButton = styledMui(Button)({
   width: 150,
-  fontSize:30,
+  fontSize:25,
   fontWeight: 900,
   lineHeight: 1.5,
   borderRadius: 10,
-  backgroundColor: '#e63959',
+  backgroundColor: '#c6ad42',
+  color: '#46505e',
   fontFamily: 'Amatic SC',
   opacity: 0,
   animation: 'showUp 1s ease-in 1s forwards',
   '&:hover': {
-    backgroundColor: '#b0184e',
+    backgroundColor: '#fbda4b',
   }
 });
 

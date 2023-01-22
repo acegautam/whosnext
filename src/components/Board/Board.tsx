@@ -77,6 +77,8 @@ const Board: React.FC = () => {
           const chosen = f === chosenOne || folks.length === 1 ? 'chosen' : '';
           return (
             <NameBadge key={f} className={`name-${idx} ${f} ${picked} ${chosen}`}>
+              {/* <img src="https://api.dicebear.com/5.x/personas/svg?seed=Cuddles" alt="marvel" /> */}
+              <NameLabel>{f}</NameLabel>
               <NameAvatar className='avatar'><NameLabel>{f}</NameLabel></NameAvatar>
             </NameBadge>
           );
