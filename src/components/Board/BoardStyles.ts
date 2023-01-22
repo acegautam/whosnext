@@ -143,7 +143,6 @@ const ColorButton = styledMui(Button)({
   fontSize:30,
   fontWeight: 900,
   lineHeight: 1.5,
-  // letterSpacing: 4,
   borderRadius: 10,
   backgroundColor: '#e63959',
   fontFamily: 'Amatic SC',

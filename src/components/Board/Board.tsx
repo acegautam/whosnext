@@ -1,4 +1,4 @@
-import { StyledBoard, NameBadge, BadgeList, NameAvatar, NameLabel, SpinButton, AcceptButton, ColorButton } from './BoardStyles';
+import { StyledBoard, NameBadge, BadgeList, NameAvatar, NameLabel, SpinButton, ColorButton } from './BoardStyles';
 import { chooseRandomName } from '../../utils/helpers';
 import { useEffect, useState } from 'react';
 import {
@@ -68,11 +68,7 @@ const Board: React.FC = () => {
     setFolks(filteredFolks);
     await updateChosenOne(chosenOne);
   };
-  const getMode = (count: number) => {
-    if (count === 2) return 'Coin Flip mode';
-    if (count === 1) return 'Default presenter mode';
-    return '';
-  };
+
   return (
     <StyledBoard>
       <BadgeList className={`size-${folks.length}`}>
