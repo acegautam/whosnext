@@ -1,5 +1,4 @@
-import Button from '@mui/material/Button';
-import { StyledBoard, NameBadge, BadgeList } from './BoardStyles';
+import { StyledBoard, NameBadge, BadgeList, NameAvatar, NameLabel, SpinButton, AcceptButton, ColorButton } from './BoardStyles';
 import { chooseRandomName } from '../../utils/helpers';
 import { useEffect, useState } from 'react';
 import {
@@ -46,8 +45,10 @@ const Board: React.FC = () => {
     let chosen: string = '';
     const timerId = setInterval(() => {
       chosen = chooseRandomName(folks);
-      setSelected(chosen);
-    }, 200);
+      if(chosen !== selected) {
+        setSelected(chosen);
+      }
+    }, 500);
     setTimeout(() => {
       clearInterval(timerId);
       setChosenOne(chosen);
@@ -74,32 +75,22 @@ const Board: React.FC = () => {
   };
   return (
     <StyledBoard>
-      <div>{getMode(folks.length)}</div>
-      <BadgeList>
-        {folks.map((f: string) => {
+      <BadgeList className={`size-${folks.length}`}>
+        {folks.map((f: string, idx: number) => {
           const picked = f === selected ? 'selected' : '';
           const chosen = f === chosenOne || folks.length === 1 ? 'chosen' : '';
           return (
-            <NameBadge key={f} className={`${f} ${picked} ${chosen}`}>
-              {f}
+            <NameBadge key={f} className={`name-${idx} ${f} ${picked} ${chosen}`}>
+              <NameAvatar className='avatar'><NameLabel>{f}</NameLabel></NameAvatar>
             </NameBadge>
           );
         })}
       </BadgeList>
-      {folks.length > 1 && (
-        <Button variant='contained' size='large' onClick={spinIt}>
-          Spin it!
-        </Button>
+      {folks.length > 1 && selected === '' && (
+        <SpinButton onClick={spinIt} />
       )}
       {(chosenOne || folks.length === 1) && (
-        <Button
-          variant='contained'
-          color='success'
-          size='large'
-          onClick={accept}
-        >
-          Accept
-        </Button>
+        <ColorButton variant='contained' onClick={accept}>I'll Go !</ColorButton>
       )}
     </StyledBoard>
   );

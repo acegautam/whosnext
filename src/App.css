@@ -1,11 +1,15 @@
+body {
+  background: #293462;
+}
+
 .App {
   text-align: center;
   font-family: 'Roboto';
 }
 
 .app-content {
+  /* height: 750px; */
   display: flex;
-  height: 90vh;
   justify-content: center;
   align-items: center;
 }
@@ -15,18 +19,24 @@
   pointer-events: none;
 }
 
+.header {
+  font-family: "Amatic SC";
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.5em;
+  letter-spacing: 5.2px;
+  text-shadow: 5px 3px 0px rgb(0 0 0 / 26%);
+  position: relative;
+  top: 30px;
+  padding-bottom: 30px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  color: white;
-  padding: 20px 0;
-}
-
 .App-link {
   color: #61dafb;
 }
