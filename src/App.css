@@ -20,7 +20,7 @@ body {
 }
 
 .header {
-  font-family: "Amatic SC";
+  font-family: 'Amatic SC';
   color: #fff;
   font-size: 4rem;
   font-weight: 900;
@@ -32,13 +32,41 @@ body {
   padding-bottom: 30px;
 }
 
-footer a {
+footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+}
+footer a.icons-credit {
   font-size: 0.7rem;
   opacity: 0.3;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
   color: #fff;
+  position: absolute;
+  right: 10px;
+}
+
+footer small {
+  font-family: 'Amatic SC';
+  font-size: 20px;
+  letter-spacing: 0.1rem;
+  width: 300px;
+  color: #fff;
+  opacity: 0.7;
+  margin: 0px auto;
+}
+
+footer small .heart {
+  display: inline-block;
+  color: #e25555;
+  animation: pound 700ms linear infinite;
+}
+
+footer small a {
+  color: #fff;
+  text-decoration: none;
+}
+footer small a .dude {
+  border-bottom: 1px dashed #fff;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -56,5 +84,14 @@ footer a {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes pound {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(0.8);
   }
 }
