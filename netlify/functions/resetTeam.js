@@ -1,13 +1,12 @@
-const { responseObj } = require('./util/helper');
+const { responseObj, requestObj } = require('./util/helper');
 const { q, clientQuery } = require('./util/connections');
 
 exports.handler = async (event, context) => {
+  let { refId, team } = requestObj(event.body);
   try {
-    const response = await clientQuery.query(
-      q.Map(
-        q.Paginate(q.Documents(q.Collection('presented')), { size: 9999 }),
-        q.Lambda(['ref'], q.Delete(q.Var('ref')))
-      )
+    let response = await clientQuery.query(
+      q.Update(
+        q.Ref(q.Collection(team), refId), { data: { presented: [] } })
     );
     return responseObj(200, response);
   } catch (error) {

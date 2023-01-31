@@ -1,38 +1,39 @@
 import { StyledBoard, NameBadge, BadgeList, NameAvatar, NameLabel, SpinButton, ColorButton } from './BoardStyles';
 import { chooseRandomName } from '../../utils/helpers';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
-  fetchParticipants,
-  fetchPresented,
-  resetPresented,
-  updateChosenOne,
+  fetchTeam,
+  resetTeam,
+  updatePresented,
 } from '../../utils/api';
 import { FolksReponseType } from '../../types/common';
 
 const Board: React.FC = () => {
   const [allFolks, setAllFolks] = useState([]);
   const [folks, setFolks] = useState([]);
+  const [presentedFolks, setPresentedFolks] = useState<string[] | []>([]);;
   const [chosenOne, setChosenOne] = useState('');
   const [selected, setSelected] = useState('');
+  const team = 'marvel'
+  const refId = useRef('')
 
   useEffect(() => {
     const fetchFolks = async () => {
       // get all participants
-      const response = await fetchParticipants();
-      if (!response?.data) return;
-      const allData = response.data.map(
-        (item: FolksReponseType) => item.data.name
+      const { data } = await fetchTeam(team);
+      if (!data || data.length === 0) return;
+      refId.current = data[0].ref['@ref'].id;
+      const { participants, presented } = data[0].data
+      const allData = participants.map(
+        (item: FolksReponseType) => item.name
       );
       setAllFolks(allData);
 
-      // get all presented
-      const presented = await fetchPresented();
-      const presentedData =
-        presented?.data?.map((item: FolksReponseType) => item.data.name) || [];
+      setPresentedFolks(presented);
 
       // filter off presented guys
       const folksData =
-        allData.filter((name: string) => !presentedData.includes(name)) || [];
+      allData.filter((name: string) => !presented.includes(name)) || [];
       setFolks(folksData);
     };
 
@@ -61,12 +62,13 @@ const Board: React.FC = () => {
     setChosenOne('');
     if (folks.length === 1) {
       setFolks(allFolks);
-      await resetPresented();
+      await resetTeam(refId.current, team);
       return;
     }
     const filteredFolks = folks.filter((f) => f !== chosenOne);
     setFolks(filteredFolks);
-    await updateChosenOne(chosenOne);
+    setPresentedFolks([...presentedFolks, chosenOne]);
+    await updatePresented(refId.current, team, [...presentedFolks, chosenOne]);
   };
 
   return (
@@ -77,9 +79,9 @@ const Board: React.FC = () => {
           const chosen = f === chosenOne || folks.length === 1 ? 'chosen' : '';
           return (
             <NameBadge key={f} className={`name-${idx} ${f} ${picked} ${chosen}`}>
-              {/* <img src="https://api.dicebear.com/5.x/personas/svg?seed=Cuddles" alt="marvel" /> */}
               <NameLabel>{f}</NameLabel>
-              <NameAvatar className='avatar'><NameLabel>{f}</NameLabel></NameAvatar>
+              <NameAvatar className='avatar'></NameAvatar>
+              <NameLabel>{f}</NameLabel>
             </NameBadge>
           );
         })}

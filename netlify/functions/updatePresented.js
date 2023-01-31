@@ -2,10 +2,11 @@ const { responseObj, requestObj } = require('./util/helper');
 const { q, clientQuery } = require('./util/connections');
 
 exports.handler = async (event, context) => {
-  let { name } = requestObj(event.body);
+  let { refId, team, presented } = requestObj(event.body);
   try {
     let chosen = await clientQuery.query(
-      q.Create(q.Collection('presented'), { data: { name } })
+      q.Update(
+        q.Ref(q.Collection(team), refId), { data: { presented } })
     );
     return responseObj(200, chosen);
   } catch (error) {

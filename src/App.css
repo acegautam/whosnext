@@ -38,11 +38,12 @@ footer {
   width: 100%;
 }
 footer a.icons-credit {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   opacity: 0.3;
   color: #fff;
   position: absolute;
   right: 10px;
+  bottom: 0;
 }
 
 footer small {
