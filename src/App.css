@@ -8,83 +8,14 @@ body {
 }
 
 .app-content {
-  /* height: 750px; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.header {
-  font-family: 'Amatic SC';
-  color: #fff;
-  font-size: 4rem;
-  font-weight: 900;
-  line-height: 1.5em;
-  letter-spacing: 5.2px;
-  text-shadow: 5px 3px 0px rgb(0 0 0 / 26%);
-  position: relative;
-  top: 10px;
-  padding-bottom: 30px;
-}
-
-footer {
-  position: fixed;
-  bottom: 10px;
-  width: 100%;
-}
-footer a.icons-credit {
-  font-size: 0.6rem;
-  opacity: 0.3;
-  color: #fff;
-  position: absolute;
-  right: 10px;
-  bottom: 0;
-}
-
-footer small {
-  font-family: 'Amatic SC';
-  font-size: 20px;
-  letter-spacing: 0.1rem;
-  width: 300px;
-  color: #fff;
-  opacity: 0.7;
-  margin: 0px auto;
-}
-
-footer small .heart {
-  display: inline-block;
-  color: #e25555;
-  animation: pound 700ms linear infinite;
-}
-
-footer small a {
-  color: #fff;
-  text-decoration: none;
-}
-footer small a .dude {
-  border-bottom: 1px dashed #fff;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
-  }
-}
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
 
