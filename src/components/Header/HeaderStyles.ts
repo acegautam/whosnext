@@ -11,6 +11,10 @@ const StyledHeader = styled.div`
   position: relative;
   top: 10px;
   padding-bottom: 30px;
+
+  .title {
+    text-align: center;
+  }
 `;
 
 const TeamLogoBox = styled.div`

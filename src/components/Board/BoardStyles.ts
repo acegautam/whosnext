@@ -45,7 +45,7 @@ const StyledBoard = styled.div`
 
   @keyframes pulse {
     0% { scale: 1; }
-    50% { scale: 1.03; }
+    50% { scale: 1.02; }
     100% { scale: 1;}
   }
 
