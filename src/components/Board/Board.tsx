@@ -1,39 +1,50 @@
-import { StyledBoard, NameBadge, BadgeList, NameAvatar, NameLabel, SpinButton, ColorButton } from './BoardStyles';
+import { useNavigate } from 'react-router-dom';
+import {
+  StyledBoard,
+  NameBadge,
+  BadgeList,
+  NameAvatar,
+  NameLabel,
+  SpinButton,
+  ColorButton,
+} from './BoardStyles';
 import { chooseRandomName } from '../../utils/helpers';
 import { useEffect, useRef, useState } from 'react';
-import {
-  fetchTeam,
-  resetTeam,
-  updatePresented,
-} from '../../utils/api';
+import { fetchTeam, resetTeam, updatePresented } from '../../utils/api';
 import { FolksReponseType } from '../../types/common';
+import { useAppInfo } from '../../common/context/AppInfoProvider';
 
 const Board: React.FC = () => {
+  const { appInfo } = useAppInfo();
   const [allFolks, setAllFolks] = useState([]);
   const [folks, setFolks] = useState([]);
-  const [presentedFolks, setPresentedFolks] = useState<string[] | []>([]);;
+  const [presentedFolks, setPresentedFolks] = useState<string[] | []>([]);
   const [chosenOne, setChosenOne] = useState('');
   const [selected, setSelected] = useState('');
-  const team = 'marvel'
-  const refId = useRef('')
+  const { selectedTeam } = appInfo;
+  const refId = useRef('');
+  let navigate = useNavigate();
 
   useEffect(() => {
+    if (!selectedTeam) {
+      // if no team selected, redirect to team chooser screen
+      navigate('/team');
+      return;
+    }
     const fetchFolks = async () => {
       // get all participants
-      const { data } = await fetchTeam(team);
+      const { data } = await fetchTeam(selectedTeam?.code || '');
       if (!data || data.length === 0) return;
       refId.current = data[0].ref['@ref'].id;
-      const { participants, presented } = data[0].data
-      const allData = participants.map(
-        (item: FolksReponseType) => item.name
-      );
+      const { participants, presented } = data[0].data;
+      const allData = participants.map((item: FolksReponseType) => item.name);
       setAllFolks(allData);
 
       setPresentedFolks(presented);
 
       // filter off presented guys
       const folksData =
-      allData.filter((name: string) => !presented.includes(name)) || [];
+        allData.filter((name: string) => !presented.includes(name)) || [];
       setFolks(folksData);
     };
 
@@ -46,7 +57,7 @@ const Board: React.FC = () => {
     let chosen: string = '';
     const timerId = setInterval(() => {
       chosen = chooseRandomName(folks);
-      if(chosen !== selected) {
+      if (chosen !== selected) {
         setSelected(chosen);
       }
     }, 500);
@@ -62,13 +73,16 @@ const Board: React.FC = () => {
     setChosenOne('');
     if (folks.length === 1) {
       setFolks(allFolks);
-      await resetTeam(refId.current, team);
+      await resetTeam(refId.current, selectedTeam?.code || '');
       return;
     }
     const filteredFolks = folks.filter((f) => f !== chosenOne);
     setFolks(filteredFolks);
     setPresentedFolks([...presentedFolks, chosenOne]);
-    await updatePresented(refId.current, team, [...presentedFolks, chosenOne]);
+    await updatePresented(refId.current, selectedTeam?.code || '', [
+      ...presentedFolks,
+      chosenOne,
+    ]);
   };
 
   return (
@@ -78,7 +92,10 @@ const Board: React.FC = () => {
           const picked = f === selected ? 'selected' : '';
           const chosen = f === chosenOne || folks.length === 1 ? 'chosen' : '';
           return (
-            <NameBadge key={f} className={`name-${idx} ${f} ${picked} ${chosen}`}>
+            <NameBadge
+              key={f}
+              className={`name-${idx} ${f} ${picked} ${chosen}`}
+            >
               <NameLabel>{f}</NameLabel>
               <NameAvatar className='avatar'></NameAvatar>
               <NameLabel>{f}</NameLabel>
@@ -86,11 +103,11 @@ const Board: React.FC = () => {
           );
         })}
       </BadgeList>
-      {folks.length > 1 && selected === '' && (
-        <SpinButton onClick={spinIt} />
-      )}
+      {folks.length > 1 && selected === '' && <SpinButton onClick={spinIt} />}
       {(chosenOne || folks.length === 1) && (
-        <ColorButton variant='contained' onClick={accept}>I'll Go !</ColorButton>
+        <ColorButton variant='contained' onClick={accept}>
+          I'll Go !
+        </ColorButton>
       )}
     </StyledBoard>
   );

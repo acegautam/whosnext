@@ -1,15 +1,17 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const StyledChooser = styled.div`
+  height: 95vh;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-flow: column wrap;
 
   .pick-label {
     font-size: 3rem;
     font-weight: 500;
   }
-`
+`;
 const ChooserBar = styled.div`
   display: flex;
   justify-content: center;
@@ -26,7 +28,7 @@ const ChooserBar = styled.div`
     cursor: pointer;
 
     &:hover {
-      filter: drop-shadow(0 0 5px #8ec456);
+      filter: drop-shadow(0 0 6px #8ec456);
       .team-logo {
         animation: spin 7s linear infinite;
       }
@@ -69,5 +71,5 @@ const ChooserBar = styled.div`
       transform: rotate(360deg);
     }
   }
-`
-export { StyledChooser, ChooserBar }
+`;
+export { StyledChooser, ChooserBar };

@@ -15,43 +15,44 @@ const StyledHeader = styled.div`
   .title {
     text-align: center;
   }
+
+  .icon-button {
+    color: #fff;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    .menu-button {
+      font-size: 2rem;
+    }
+  }
 `;
 
 const TeamLogoBox = styled.div`
   width: 300px;
   display: flex;
-  align-items:center;
+  align-items: center;
   gap: 10px;
   position: fixed;
-  top: 10px; left: 10px;
+  top: 20px;
+  left: 20px;
 
   .logo {
-    background-image: url('/assets/shield.png');
+    background-image: url('/assets/link.png');
     background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
     width: 40px;
     height: 40px;
+    margin-right: 10px;
+
+    &.marvel {
+      background-image: url('/assets/shield.png');
+    }
   }
   .name {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     line-height: 1.5rem;
   }
+`;
 
-  @media (prefers-reduced-motion: no-preference) {
-    .logo {
-      animation: spin 10s linear infinite;
-    }
-  }
-
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-`
-
-export { StyledHeader, TeamLogoBox }
+export { StyledHeader, TeamLogoBox };

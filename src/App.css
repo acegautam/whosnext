@@ -13,6 +13,21 @@ body {
   align-items: center;
 }
 
+ul[role='menu'] {
+  background: #445392 !important;
+  color: #fff !important;
+}
+.menu-item {
+  font-family: 'Amatic SC' !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1rem !important;
+}
+
+.swap-icon {
+  margin-right: 10px !important;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
