@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <div className='title'>Who's Next?</div>
+      <div className='title'>Who's Next????</div>
       <TeamLogoBox>
         <div className={`logo ${selectedTeam?.code}`} />
         <div className='name'>Team {selectedTeam?.name}</div>
