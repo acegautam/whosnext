@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Card, CardContent } from '@mui/material';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
