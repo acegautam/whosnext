@@ -8,6 +8,7 @@ import {
 
 const INITIAL_APP_INFO = {
   selectedTeam: null,
+  showSplash: true,
 };
 
 const AppContext = createContext<AppContextType | null>(null);

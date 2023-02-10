@@ -4,7 +4,7 @@ const StyledChooser = styled.div`
   height: 95vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-flow: column wrap;
 
   .pick-label {
@@ -17,8 +17,7 @@ const ChooserBar = styled.div`
   justify-content: center;
   gap: 50px;
   width: 90%;
-  margin-top: 50px;
-  margin-bottom: 80px;
+  margin: 200px 0;
 
   .team-card {
     align-items: center;

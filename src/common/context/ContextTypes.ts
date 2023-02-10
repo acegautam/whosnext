@@ -5,6 +5,7 @@ export interface ITeam {
 
 export type AppInfoType = {
   selectedTeam: ITeam | null;
+  showSplash: boolean;
 };
 
 export type AppContextType = {
