@@ -6,10 +6,48 @@ const icon = 'robot';
 
 const StyledBoard = styled.div`
   width: 70vw;
-  height: 70vh;
+  height: 60vh;
   font-family: 'Amatic SC';
   color: #fff;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 
+  .size-n {
+    position: unset;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: space-around;
+    gap: 50px;
+    .badge {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      position: unset;
+      &.size-5p {
+        transform: scale(1);
+      }
+      &.size-10p {
+        transform: scale(0.95);
+      }
+      &.size-15p {
+        transform: scale(0.85);
+      }
+      &.size-25p {
+        transform: scale(0.65);
+      }
+    }
+
+    .label {
+      display: flex;
+      position: unset;
+      justify-content: center;
+      margin-top: 5px;
+    }
+  }
   .size-5 {
     .name-0 {
       top: 0;
@@ -177,6 +215,7 @@ const NameLabel = styled.div`
 `;
 
 const SpinButton = styled.div`
+  display: flex;
   background-image: url('/assets/spin.png');
   background-size: 40% 40%;
   background-position: center center;
@@ -185,13 +224,7 @@ const SpinButton = styled.div`
   height: 200px;
   cursor: pointer;
 
-  margin: 0 auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   animation: pulse 1s ease-in infinite;
-
   &:hover {
     animation-play-state: paused;
   }
@@ -213,6 +246,7 @@ const AcceptButton = styled.div`
 
 const ColorButton = styledMui(Button)({
   width: 150,
+  height: 60,
   fontSize: 25,
   fontWeight: 900,
   lineHeight: 1.5,
@@ -221,7 +255,7 @@ const ColorButton = styledMui(Button)({
   color: '#fff',
   fontFamily: 'Amatic SC',
   opacity: 0,
-  animation: 'showUp 1s ease-in 1s forwards',
+  animation: 'showUp 0.5s ease-in 0.5s forwards',
   '&:hover': {
     backgroundColor: '#7f2d40',
   },

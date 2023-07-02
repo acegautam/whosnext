@@ -86,27 +86,38 @@ const Board: React.FC = () => {
     ]);
   };
 
+  const getSizeClass = (n: number) => {
+    if (n > 25) return '25p';
+    if (n > 15) return '15p';
+    if (n > 10) return '10p';
+    if (n > 5) return '5p';
+    return '';
+  };
+
+  const folksCount = folks?.length || 0;
+  const sizeNum = folksCount > 5 ? 'n' : String(folks.length);
+  const sizeClass: string = getSizeClass(folksCount);
+
   return (
     <StyledBoard>
-      <BadgeList className={`size-${folks.length}`}>
+      <BadgeList className={`size-${sizeNum}`}>
         {folks.map((f: string, idx: number) => {
           const picked = f === selected ? 'selected' : '';
           const chosen = f === chosenOne || folks.length === 1 ? 'chosen' : '';
           return (
             <NameBadge
-              key={f}
-              className={`name-${idx} ${f} ${picked} ${chosen}`}
+              key={`${f}-${idx}`}
+              className={`badge size-${sizeClass} name-${idx} ${f} ${picked} ${chosen}`}
             >
-              <NameLabel>{f}</NameLabel>
-              <NameAvatar className='avatar'></NameAvatar>
-              <NameLabel>{f}</NameLabel>
+              <NameAvatar className="avatar"></NameAvatar>
+              <NameLabel className="label">{f}</NameLabel>
             </NameBadge>
           );
         })}
       </BadgeList>
       {folks.length > 1 && selected === '' && <SpinButton onClick={spinIt} />}
       {(chosenOne || folks.length === 1) && (
-        <ColorButton variant='contained' onClick={accept}>
+        <ColorButton variant="contained" onClick={accept}>
           I'll Go !
         </ColorButton>
       )}
