@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
   position: fixed;
@@ -36,7 +36,12 @@ const StyledFooter = styled.footer`
       }
     }
   }
-
-`
+  .lowes-logo {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%)
+      hue-rotate(6deg) brightness(107%) contrast(105%);
+    transform: scale(3.5);
+    padding: 0 18px;
+  }
+`;
 
 export { StyledFooter };
