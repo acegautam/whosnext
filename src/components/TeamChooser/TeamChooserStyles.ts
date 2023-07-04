@@ -5,7 +5,8 @@ const StyledChooser = styled.div`
   display: flex;
   align-items: center;
   /* justify-content: space-between; */
-  flex-flow: column wrap;
+  flex-flow: row wrap;
+  justify-content: center;
 
   .pick-label {
     font-size: 3rem;
@@ -51,6 +52,9 @@ const ChooserBar = styled.div`
 
         &.marvel {
           background-image: url('/assets/shield.png');
+        }
+        &.ujima {
+          background-image: url('/assets/ujima.png');
         }
       }
 

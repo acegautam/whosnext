@@ -48,6 +48,9 @@ const TeamLogoBox = styled.div`
     &.marvel {
       background-image: url('/assets/shield.png');
     }
+    &.ujima {
+      background-image: url('/assets/ujima.png');
+    }
   }
   .name {
     font-size: 1.7rem;
