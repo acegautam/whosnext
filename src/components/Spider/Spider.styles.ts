@@ -107,7 +107,7 @@ const CreepySpider = styled.div`
     margin-left: -30px;
   }
 
-  /* 1. Animatie */
+  /* 1. Animate the look */
   @keyframes look {
     0%,
     40%,
@@ -121,7 +121,7 @@ const CreepySpider = styled.div`
     }
   }
 
-  /* 3. Animatie */
+  /* 3. Animate the swing */
   @keyframes swing {
     0%,
     100% {
