@@ -23,8 +23,8 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <div className="title">Who's Next?</div>
-      {/* <div className="title">Ghostly Gathering</div>
+      {/* <div className="title">Who's Next?</div> */}
+      <div className="title">Ghostly Gathering</div>
       <p
         style={{
           fontFamily: 'Roboto',
@@ -33,7 +33,7 @@ const Header = () => {
         }}
       >
         Who you gonna call?
-      </p> */}
+      </p>
       <TeamLogoBox>
         <div className={`logo ${selectedTeam?.code}`} />
         <div className="name">Team {selectedTeam?.name}</div>

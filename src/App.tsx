@@ -5,18 +5,17 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import '@fontsource/amatic-sc';
 import './App.css';
-// import './spider.css';
 import Board from './components/Board/Board';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-// import Spider from './components/Spider/Spider';
+import Spider from './components/Spider/Spider';
 
 function App() {
   return (
     <div className="App">
       <Header />
       <main className="app-content">
-        {/* <Spider /> */}
+        <Spider />
         <Board />
       </main>
       <Footer />
