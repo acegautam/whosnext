@@ -2,7 +2,14 @@ import Button from '@mui/material/Button';
 import styled from 'styled-components';
 import { styled as styledMui } from '@mui/material/styles';
 
-const icon = 'robot';
+// const icon = 'robot';
+const icon = 'ghost';
+// const icon = 'pumpkin';
+// const icon = 'vampire';
+// const icon = 'witch';
+// const icon = 'zombie';
+// const icon = 'dracula';
+// const icon = 'jack-o-lantern';
 
 const StyledBoard = styled.div`
   width: 70vw;
@@ -179,7 +186,7 @@ const NameBadge = styled.div`
   position: absolute;
 
   .avatar {
-    animation: dance 500ms ease-in 10;
+    animation: dance 500ms ease-in infinite;
   }
 
   &.selected {
@@ -227,6 +234,9 @@ const SpinButton = styled.div`
   animation: pulse 1s ease-in infinite;
   &:hover {
     animation-play-state: paused;
+    .spider {
+      top: -120%;
+    }
   }
 `;
 const AcceptButton = styled.div`

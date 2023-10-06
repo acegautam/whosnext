@@ -23,27 +23,37 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <div className='title'>Who's Next?</div>
+      {/* <div className="title">Who's Next?</div> */}
+      <div className="title">Ghostly Gathering</div>
+      <p
+        style={{
+          fontFamily: 'Roboto',
+          fontSize: '0.9rem',
+          lineHeight: '0.8rem',
+        }}
+      >
+        Who you gonna call?
+      </p>
       <TeamLogoBox>
         <div className={`logo ${selectedTeam?.code}`} />
-        <div className='name'>Team {selectedTeam?.name}</div>
+        <div className="name">Team {selectedTeam?.name}</div>
       </TeamLogoBox>
       <IconButton
-        className='icon-button'
-        aria-label='menu'
-        size='large'
+        className="icon-button"
+        aria-label="menu"
+        size="large"
         onClick={openMenu}
       >
-        <MenuRoundedIcon className='menu-button' />
+        <MenuRoundedIcon className="menu-button" />
       </IconButton>
       <Menu
-        id='basic-menu'
+        id="basic-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
       >
-        <MenuItem className='menu-item' onClick={switchTeam}>
-          <SwapHorizRoundedIcon className='swap-icon' />
+        <MenuItem className="menu-item" onClick={switchTeam}>
+          <SwapHorizRoundedIcon className="swap-icon" />
           Switch team
         </MenuItem>
       </Menu>
