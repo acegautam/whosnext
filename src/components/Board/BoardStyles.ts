@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { styled as styledMui } from '@mui/material/styles';
 
 // const icon = 'robot';
-const icon = 'ghost';
+// const icon = 'ghost';
 // const icon = 'pumpkin';
-// const icon = 'vampire';
+const icon = 'vampire';
 // const icon = 'witch';
 // const icon = 'zombie';
 // const icon = 'dracula';

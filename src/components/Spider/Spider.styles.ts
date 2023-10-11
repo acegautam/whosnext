@@ -21,9 +21,9 @@ const CreepySpider = styled.div`
   }
 
   .body {
-    width: 100px;
-    height: 80px;
-    background: #000;
+    width: 85px;
+    height: 100px;
+    background: rgb(196 46 71);
     position: relative;
     border-radius: 50%;
   }

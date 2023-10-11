@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <StyledHeader>
       {/* <div className="title">Who's Next?</div> */}
-      <div className="title">Ghostly Gathering</div>
+      <div className="title">Vampire Vogue</div>
       <p
         style={{
           fontFamily: 'Roboto',
@@ -32,7 +32,7 @@ const Header = () => {
           lineHeight: '0.8rem',
         }}
       >
-        Who you gonna call?
+        Who doesn't like Bloody Mary...
       </p>
       <TeamLogoBox>
         <div className={`logo ${selectedTeam?.code}`} />
