@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <StyledHeader>
       {/* <div className="title">Who's Next?</div> */}
-      <div className="title">Wacky Witches</div>
+      <div className="title">Zombie Spin</div>
       {/* <p
         style={{
           fontFamily: 'Roboto',

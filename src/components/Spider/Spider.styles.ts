@@ -4,7 +4,7 @@ const CreepySpider = styled.div`
   position: absolute;
   display: inline-block;
   top: 0;
-  left: 15%;
+  left: 5%;
 
   /* 4. Animatie */
   animation: swing 2s infinite;
@@ -21,9 +21,9 @@ const CreepySpider = styled.div`
   }
 
   .body {
-    width: 85px;
-    height: 100px;
-    background: rgb(196 46 71);
+    width: 100px;
+    height: 85px;
+    background: #000;
     position: relative;
     border-radius: 50%;
   }
