@@ -7,8 +7,8 @@ import { styled as styledMui } from '@mui/material/styles';
 // const icon = 'pumpkin';
 // const icon = 'vampire';
 // const icon = 'witch';
-const icon = 'zombie';
-// const icon = 'dracula';
+// const icon = 'zombie';
+const icon = 'dracula';
 // const icon = 'jack-o-lantern';
 
 const StyledBoard = styled.div`
