@@ -23,8 +23,8 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      {/* <div className="title">Who's Next?</div> */}
-      <div className="title">Jack-O'-Lanterns to close</div>
+      <div className="title">Who's Next?</div>
+      {/* <div className="title">Jack-O'-Lanterns to close</div> */}
       {/* <p
         style={{
           fontFamily: 'Roboto',

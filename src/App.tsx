@@ -8,14 +8,14 @@ import './App.css';
 import Board from './components/Board/Board';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Spider from './components/Spider/Spider';
+// import Spider from './components/Spider/Spider';
 
 function App() {
   return (
     <div className="App">
       <Header />
       <main className="app-content">
-        <Spider />
+        {/* <Spider /> */}
         <Board />
       </main>
       <Footer />
