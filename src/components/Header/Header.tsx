@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { IconButton, Menu, MenuItem } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import SwapHorizRoundedIcon from '@mui/icons-material/SwapHorizRounded';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import { useAppInfo } from '../../common/context/AppInfoProvider';
 import { StyledHeader, TeamLogoBox } from './HeaderStyles';
 import React from 'react';
@@ -20,20 +21,14 @@ const Header = () => {
     navigate('/team');
     handleClose();
   };
+  const manageUsers = () => {
+    navigate('/users');
+    handleClose();
+  };
 
   return (
     <StyledHeader>
       <div className="title">Who's Next?</div>
-      {/* <div className="title">Jack-O'-Lanterns to close</div> */}
-      {/* <p
-        style={{
-          fontFamily: 'Roboto',
-          fontSize: '0.9rem',
-          lineHeight: '0.8rem',
-        }}
-      >
-        Who doesn't like Bloody Mary...
-      </p> */}
       <TeamLogoBox>
         <div className={`logo ${selectedTeam?.code}`} />
         <div className="name">Team {selectedTeam?.name}</div>
@@ -55,6 +50,10 @@ const Header = () => {
         <MenuItem className="menu-item" onClick={switchTeam}>
           <SwapHorizRoundedIcon className="swap-icon" />
           Switch team
+        </MenuItem>
+        <MenuItem className="menu-item" onClick={manageUsers}>
+          <PeopleAltIcon className="people-icon" />
+          Manage
         </MenuItem>
       </Menu>
     </StyledHeader>

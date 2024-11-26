@@ -24,7 +24,7 @@ ul[role='menu'] {
   letter-spacing: 0.1rem !important;
 }
 
-.swap-icon {
+.swap-icon, .people-icon {
   margin-right: 10px !important;
 }
 
