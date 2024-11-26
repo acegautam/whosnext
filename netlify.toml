@@ -1,3 +1,20 @@
 [build]
-command = "npm run build"
-publish = "build"
+  command = "CI= npm run build"
+  publish = "build"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[dev]
+  command = "npm run start"
+  targetPort = 3000
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
