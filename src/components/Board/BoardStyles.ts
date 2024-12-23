@@ -225,7 +225,7 @@ const NameLabel = styled.div`
 
 const SpinButton = styled.div`
   display: flex;
-  background-image: url('/assets/spin.png');
+  background-image: url('/assets/spin_tree.png');
   background-size: 40% 40%;
   background-position: center center;
   background-repeat: no-repeat;

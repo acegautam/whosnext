@@ -14,6 +14,12 @@ const StyledHeader = styled.div`
 
   .title {
     text-align: center;
+    .green {
+      color: #8ec456;
+    }
+    .red {
+      color: #ff5364;
+    }
   }
 
   .icon-button {
