@@ -2,14 +2,16 @@ import Button from '@mui/material/Button';
 import styled from 'styled-components';
 import { styled as styledMui } from '@mui/material/styles';
 
-const icon = 'robot';
-// const icon = 'ghost';
+// const icon = 'robot';
+const icon = 'santaclaus';
+// const icon = 'reindeer';
 // const icon = 'pumpkin';
 // const icon = 'vampire';
 // const icon = 'witch';
 // const icon = 'zombie';
 // const icon = 'dracula';
 // const icon = 'jack-o-lantern';
+
 
 const StyledBoard = styled.div`
   width: 70vw;
