@@ -20,6 +20,9 @@ const StyledHeader = styled.div`
     .red {
       color: #ff5364;
     }
+    .blue {
+      color: #758BFD;
+    }
   }
 
   .icon-button {

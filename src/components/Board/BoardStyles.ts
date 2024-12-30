@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { styled as styledMui } from '@mui/material/styles';
 
 // const icon = 'robot';
-const icon = 'santaclaus';
+// const icon = 'santaclaus';
+const icon = 'party-hat';
 // const icon = 'reindeer';
 // const icon = 'pumpkin';
 // const icon = 'vampire';
@@ -225,7 +226,7 @@ const NameLabel = styled.div`
 
 const SpinButton = styled.div`
   display: flex;
-  background-image: url('/assets/spin_tree.png');
+  background-image: url('/assets/spin.png');
   background-size: 40% 40%;
   background-position: center center;
   background-repeat: no-repeat;
