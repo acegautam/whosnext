@@ -29,9 +29,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <div className="title">
-        <span className='blue'>Happy </span>
-        <span className='red'>New Year </span>
-        <span>2025!</span>
+        <span>Who's Next?</span>
       </div>
       <TeamLogoBox>
         <div className={`logo ${selectedTeam?.code}`} />

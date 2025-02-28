@@ -2,9 +2,9 @@ import Button from '@mui/material/Button';
 import styled from 'styled-components';
 import { styled as styledMui } from '@mui/material/styles';
 
-// const icon = 'robot';
+const icon = 'robot';
 // const icon = 'santaclaus';
-const icon = 'party-hat';
+// const icon = 'party-hat';
 // const icon = 'reindeer';
 // const icon = 'pumpkin';
 // const icon = 'vampire';
